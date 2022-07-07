@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <div class="container-sm" >
+        <form id="form1" method="POST" action="registrar.php">
+            <p class="h2"> INICIO DE SESIÓN</p>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="inputFirstName4" class="form-label">Nombre</label>
+                    <input type="text" id="txtNombreR" name="txtNombreR" class="form-control" placeholder="">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputFirstName4" class="form-label">Apellido</label>
+                    <input type="text" id="txtApellidoR" name="txtApellidoR" class="form-control" placeholder="" aria-label="Last name">
+                </div>
+                <div class="col-md-4 position-relative">
+                    <label for="validationTooltipUsername" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                        <input type="text" id="txtUsuarioR" name="txtUsuarioR" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                        <div class="invalid-tooltip">
+                            Please choose a unique and valid username.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
+                    <input type="email" id="txtEmailR" name="txtEmailR" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="col-md-4">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <input type="password" id="txtContraseñaR" name="txtContraseñaR" class="form-control" id="exampleInputPassword1">
+                </div>
+                
+            </div>
+            
+            
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Aceptar terminos y condiciones</label>
+            </div>
+            <!--<input type="submit" name="boton" value="registrar"></p>-->
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <p class="pIzquierda"><a href="index.html">Iniciar sesión</a></p>
+          </form>
+    </div>
+</body>
+</html>

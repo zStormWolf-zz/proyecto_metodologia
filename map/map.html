@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>leaflet-map-simple</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+  <!-- Load Leaflet code library: see http://leafletjs.com/download.html -->
+  
+
+  <!-- Position the map and title with Cascading Style Sheet (CSS) -->
+  <style>
+  body { margin:0; padding:0; }
+  #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+  #map-title { position: relative; margin-top: 10px; margin-left: 50px; float: left; background: white; border: 2px solid rgba(0,0,0,0.2); padding: 6px 8px; font-family: Helvetica; font-weight: bold; font-size: 24px; z-index: 800; }
+  </style>
+</head>
+<body>
+
+  <!-- Display the map and title with HTML division tags  -->
+  <div id="map-title">Puntos de reciclaje en Panamá Oeste</div>
+  <div id="map"></div>
+  <!-- Create the interactive map content with JavaScript (.js) -->
+  <script>
+    /* Set up the initial map center and zoom level */
+    var map = L.map('map', {
+    center: [8.88028, -79.7833], // EDIT coordinates to re-center map
+    zoom: 12,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
+    scrollWheelZoom: false,
+    tap: false
+  });
+  /* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */
+  L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">\
+        OpenStreetMap</a> contributors, &copy;\
+        <a href="https://carto.com/attribution">CARTO</a>'
+    }).addTo(map);
+    /* Display a point marker with pop-up text */
+  L.marker([8.870453, -79.818716]).addTo(map) // RECICLADORA ALESSA
+  .bindPopup("<div style='text-align: center'><img src='imgMap/recicladoraAlessa.png' width='50%' ><p>Recicladora Alessa #3 Centro de reciclaje</p> </div><button onclick='clickBtnLlegar(8.870453, -79.818716);'>Como llegar</button>"); // EDIT pop-up text message
+  
+  
+  
+  L.marker([8.862394797762269, -79.80581676956203]).addTo(map) // RECICLADORA IMAN
+  .bindPopup("<div style='text-align: center'><img src='imgMap/iman.jpg' width='50%' ><p>Recicladora Internacional Iman Centro de reciclaje</p> </div><button onclick='clickBtnLlegar(8.862394797762269, -79.80581676956203);'>Como llegar</button>"); // EDIT pop-up text message
+  
+  
+  L.marker([8.85373807380427, -79.8148351187982]).addTo(map) // RECICLADORA MARIO MILENIO
+  .bindPopup("<div style='text-align: center'><img src='imgMap/fasttec.png' width='50%' ><p>Recicladora Mario Milenio</p> </div><button onclick='clickBtnLlegar(8.85373807380427, -79.8148351187982);'>Como llegar</button>"); // EDIT pop-up text message
+  
+
+  L.marker([8.885794735049625, -79.77449763896836]).addTo(map) // RECICLADORA ARIELITO
+  .bindPopup("<div style='text-align: center'><img src='imgMap/arielito.png' width='50%' ><p>Recicladora Mario Milenio</p> </div><button onclick='clickBtnLlegar(8.85373807380427, -79.8148351187982);'>Como llegar</button>"); // EDIT pop-up text message
+
+
+  L.marker([8.876943569301089, -79.78136409396392]).addTo(map) // RECICLADORA MARIO 3
+  .bindPopup("<div style='text-align: center'><img src='imgMap/arielito.png' width='50%' ><p>Recicladora Mario Milenio</p> </div><button onclick='clickBtnLlegar(8.876943569301089, -79.78136409396392);'>Como llegar</button>"); // EDIT pop-up text message
+  
+  
+
+  /*L.Routing.control({
+            waypoints: [
+              L.latLng(latitud, longitud),
+              L.latLng(position.coords.latitude, position.coords.longitude)
+            ]
+          }).addTo(map);*/
+
+  
+
+function clickBtnLlegar(latitud, longitud){
+  
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+        console.log(position);
+        L.Routing.control({
+            waypoints: [
+              L.latLng(position.coords.latitude, position.coords.longitude),
+              L.latLng(latitud, longitud)
+            ]
+          }).addTo(map);
+        });
+        }
+    }
+
+  </script>
+</body>
+</html>
